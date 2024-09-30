@@ -1,73 +1,42 @@
-# [OffscreenCanvas] experiment
+# [OffscreenCanvas] Experiment
 
 > [!NOTE]
->
-> This is an experimental drawing of hexagonal grid using `OffscreenCanvas`. It
-> contains much more complex code than needed to create a simple hexagonal grid
-> just with `HTMLCanvasElement`. The purpose of this experiment is to test the
-> performance of `OffscreenCanvas` and to learn how to use it.
+> This is an experimental project that draws a hexagonal grid using `OffscreenCanvas`. The code is more complex than necessary for creating a simple hexagonal grid with `HTMLCanvasElement`. The purpose is to test the performance of `OffscreenCanvas` and gain hands-on experience with it.
 
 > [!TIP]
->
-> It's recommended to run Nuxt.js in development in [https] mode. To do this,
-> create a `~/.nuxtrc` file with the following content:
+> It's recommended to run Nuxt.js in development mode with [https]. To do so, create a `~/.nuxtrc` file with the following content:
 >
 > ```env
-> # I'm using WSL2, so the paths are the following
+> # These paths are specific to my WSL2 setup
 > devServer.https.key=/mnt/c/Users/NandorDudas/localhost+3-key.pem
 > devServer.https.cert=/mnt/c/Users/NandorDudas/localhost+3.pem
 > ```
 >
-> To create the key and certificate files, use [mkcert] and follow the
-> instructions.
+> Use [mkcert] to generate the key and certificate, and follow the setup instructions.
 >
-> 🤫 and all your Nuxt.js projects will runs with https mode.
+> 🤫 All your Nuxt.js projects will now run in https mode.
 
-## What's happening here?
+## What's Happening Here?
 
-This is a simple hexagonal grid drawn on a canvas. The grid is drawn using
-`OffscreenCanvas` and the main canvas is used to display the grid. The grid is
-drawn on the offscreen canvas and then the offscreen canvas is transferred to
-the main canvas.
+This project draws a simple hexagonal grid on a canvas using `OffscreenCanvas`. The grid is rendered on the offscreen canvas and then transferred to the main canvas for display.
 
-Application is started at `app.vue`, uses the index page to display the canvas
-and the grid is drawn at `components/app/CanvasWrapper.vue` component in client
-only mode. This is required because `Worker` is not available in the server
-environment. And of course the page has wrapped in a layout.
-The `components/app/CanvasWrapper.vue` component uses the
-`components/app/Canvas.vue` component to display the canvas. The `Canvas.vue`
-component is responsible for drawing the grid on the canvas.
-There are some composable functions in the `composables` directory to handle
-canvas and worker related tasks.
+The application starts at `app.vue`, with the index page rendering the canvas. The hexagonal grid is drawn in the `components/app/CanvasWrapper.vue` component, which is loaded in client-only mode because `Worker` is unavailable in server environments. The page itself is wrapped in a layout.
 
-The worker is living in the `lib/workers/hexagonal-grid` directory and it's
-responsible for drawing the grid on the offscreen canvas. The worker is created
-in the `composables/use-worker.ts` composable function and the worker is used
-in the `components/app/CanvasWrapper.vue` component.
-For easier development, the worker is reloaded on every change in the worker
-but this HMR behavior can be distorbing, so it's recommended to export event
-listeners from the worker file.
+The `CanvasWrapper.vue` component uses the `components/app/Canvas.vue` component to display the canvas. `Canvas.vue` handles the actual grid drawing. Some helper functions in the `composables` directory handle canvas and worker-related tasks.
+
+The worker, located in the `lib/workers/hexagonal-grid` directory, is responsible for drawing the grid on the offscreen canvas. The worker is created in the `composables/use-worker.ts` composable function and used within `CanvasWrapper.vue`.
+
+To streamline development, the worker reloads on any code change. However, this hot module replacement (HMR) behavior can interfere with some workflows, so exporting event listeners from the worker file is recommended.
 
 > [!WARNING]
->
-> Every time the worker is reloaded, the Tailwind CSS JIT compiler is
-> recompiling the CSS files and an error is thrown.
+> Every time the worker reloads, the Tailwind CSS JIT compiler recompiles the CSS files, which may throw an error.
 
 > [!NOTE]
->
-> There are some boilerplate code in the `lib/hexagonal-grid` directory to
-> make the messaging between the main thread and the worker easier. The
-> emitter and setting classes are used to it.
+> Some boilerplate code in the `lib/hexagonal-grid` directory simplifies communication between the main thread and the worker. This includes classes for event emitting and settings.
 
-You can check only the `lib/hexagonal-grid/runner.ts` file to see the drawing
-mechanism of the hexagonal grid. Other files can be checked to see how the
-application is built.
+You only need to check the `lib/hexagonal-grid/runner.ts` file to understand the hexagonal grid's drawing mechanism. The other files provide insight into how the application is structured.
 
-Mouse coordinates are used inside the worker with [SharedArrayBuffer] to
-highlight the hovered hexagon. The hovered hexagon is drawn on the main canvas
-and the offscreen canvas is transferred to the main canvas.
-I chose this method to use the mouse coordinates because the worker is not
-able to access the mouse events.
+Mouse coordinates are passed to the worker using a [SharedArrayBuffer], which is used to highlight the hovered hexagon. The highlighted hexagon is drawn on the main canvas, and the offscreen canvas is transferred afterward. This method allows for handling mouse interactions since the worker cannot directly access mouse events.
 
 <details>
 <summary>Click to see the hexagonal grid</summary>
@@ -79,15 +48,14 @@ able to access the mouse events.
 ![Level 3 Hover](assets/level-3-hover.png)
 </details>
 
-## How to run this project?
+## How to Run This Project?
 
-1. Clone this repository.
-2. Run `pnpm install` to install the dependencies.
+1. Clone the repository.
+2. Run `pnpm install` to install dependencies.
 3. Run `pnpm dev` to start the development server.
 
 > [!TIP]
->
-> Try to use [ni].
+> Consider using [ni]:
 >
 > ```bash
 > npm install --global @antfu/ni
