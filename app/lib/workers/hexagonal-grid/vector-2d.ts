@@ -45,6 +45,15 @@ export class Vector2D implements Coordinates {
     return Vector2D.create(this.#x, this.#y)
   }
 
+  add(value: number | Vector2D): this {
+    const isScalar = isNumber(value)
+
+    this.#x += isScalar ? value : value.x
+    this.#y += isScalar ? value : value.y
+
+    return this
+  }
+
   transform(angle: number): this {
     const cosAngle = Math.cos(angle)
     const sinAngle = Math.sin(angle)
