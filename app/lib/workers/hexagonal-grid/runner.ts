@@ -25,11 +25,21 @@ function drawHexagonalGrid(options: DrawHexagonalGridOptions) {
   const hexagonWidth = hexagonRadius * 2
 
   for (let q = -level; q <= level; ++q) {
+    /**
+     * Draws the hexagonal grid using axial cube coordinates (q, r).
+     * The grid starts at the top-left corner and iterates row by row,
+     * covering the specified level and ensuring all hexagons within the level are drawn.
+     */
     for (let r = Math.max(-level, -q - level); r <= Math.min(level, -q + level); ++r) {
       const hexagon = Hexagon.create({
         radius: hexagonRadius,
         position: canvasCenter
           .clone()
+          /**
+           * Calculates the position of the hexagon based on its axial cube coordinates (q, r).
+           * The hexagon's dimensions are scaled by 3/4 and 1/2, then added to the canvas center.
+           * The position is further adjusted based on the cube coordinates.
+           */
           .add(Vector2D.create((q * hexagonWidth * 3 / 4), ((r + q / 2) * hexagonHeight))),
       })
 
