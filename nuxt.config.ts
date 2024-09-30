@@ -9,15 +9,18 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
   future: { compatibilityVersion: 4 },
-  extends: ['@nuxt/ui-pro'],
   modules: ['@nuxt/ui', '@vueuse/nuxt'],
   $development: {
     vite: {
-      server: { headers: sharedArratBufferHeaders },
+      server: {
+        headers: sharedArratBufferHeaders,
+      },
     },
     nitro: {
       routeRules: {
-        '**': { headers: sharedArratBufferHeaders },
+        '**': {
+          headers: sharedArratBufferHeaders,
+        },
       },
     },
   },

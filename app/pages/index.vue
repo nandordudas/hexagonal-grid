@@ -2,10 +2,18 @@
 definePageMeta({
   layout: 'default',
 })
+
+onMounted(async () => {
+  await nextTick()
+
+  logger
+    .withTag('page:index')
+    .debug('has mounted')
+})
 </script>
 
 <template>
-  <div class="grid place-items-center h-screen">
-    Hello, World!
-  </div>
+  <ClientOnly>
+    <AppCanvasWrapper width="800" height="450" />
+  </ClientOnly>
 </template>

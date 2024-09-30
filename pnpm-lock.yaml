@@ -14,9 +14,6 @@ importers:
       '@nuxt/ui':
         specifier: ^2.18.6
         version: 2.18.6(magicast@0.3.5)(rollup@4.22.5)(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1))(vue@3.5.10(typescript@5.6.2))
-      '@nuxt/ui-pro':
-        specifier: ^1.4.3
-        version: 1.4.3(magicast@0.3.5)(rollup@4.22.5)(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1))(vue@3.5.10(typescript@5.6.2))
       '@vueuse/core':
         specifier: ^11.1.0
         version: 11.1.0(vue@3.5.10(typescript@5.6.2))
@@ -767,9 +764,6 @@ packages:
   '@iconify-json/heroicons@1.2.0':
     resolution: {integrity: sha512-EmvGN0L9EUJCmQ82rkLGZ4tkz0YGQfZV7ugKT6UvHni/bxNitQrD0gLj6NJj2W9zsSoXyNHyCX236+EJmO4pmA==}
 
-  '@iconify-json/vscode-icons@1.2.2':
-    resolution: {integrity: sha512-bTpT0HJDRqGkxQv8oiETNHLEnBZpnA1QaRD35CQyO7M7qgWVLx2xwn/lK6e4waojmlPC3ckMBx3WFIUUn0/Jdg==}
-
   '@iconify/collections@1.0.465':
     resolution: {integrity: sha512-40sG1esFVHw4WdT9vH16FAu21KqZqudGHLCDs4uRAnLaym1XFXLJYzT1YEYlaV+mz3N7DQMBcjuJqQFPFFz42Q==}
 
@@ -882,9 +876,6 @@ packages:
   '@nuxt/telemetry@2.6.0':
     resolution: {integrity: sha512-h4YJ1d32cU7tDKjjhjtIIEck4WF/w3DTQBT348E9Pz85YLttnLqktLM0Ez9Xc2LzCeUgBDQv1el7Ob/zT3KUqg==}
     hasBin: true
-
-  '@nuxt/ui-pro@1.4.3':
-    resolution: {integrity: sha512-3xEtApJHitBXOtlI5y3eoL+Ij3OP5BtjeInix1u2jFtZF446Bu38G/BC37Lt/oPu9GFqQ1FRMsasQwGEE5nIig==}
 
   '@nuxt/ui@2.18.6':
     resolution: {integrity: sha512-IyAMdw+oyrLnILp8k/Xfe2eX1RoFcQSnJd6Z0DBR/NmurrHR8M1EGRxDyT5ob6EbR1PbTZa6t3xQOO5xjslPwg==}
@@ -3978,9 +3969,6 @@ packages:
   smob@1.5.0:
     resolution: {integrity: sha512-g6T+p7QO8npa+/hNx9ohv1E5pVCmWrVCUzUXJyLdMmftX6ER0oiWY/w9knEonLpnOp6b6FenKnMfR8gqwWdwig==}
 
-  smooth-dnd@0.12.1:
-    resolution: {integrity: sha512-Dndj/MOG7VP83mvzfGCLGzV2HuK1lWachMtWl/Iuk6zV7noDycIBnflwaPuDzoaapEl3Pc4+ybJArkkx9sxPZg==}
-
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -4541,11 +4529,6 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.0'
-
-  vue3-smooth-dnd@0.0.6:
-    resolution: {integrity: sha512-CH9ZZhEfE7qU1ef2rlfgBG+nZtQX8PnWlspB2HDDz1uVGU7fXM0Pr65DftBMz4X81S+edw2H+ZFG6Dyb5J81KA==}
-    peerDependencies:
-      vue: ^3.0.11
 
   vue@3.5.10:
     resolution: {integrity: sha512-Vy2kmJwHPlouC/tSnIgXVg03SG+9wSqT1xu1Vehc+ChsXsRd7jLkKgMltVEFOzUdBr3uFwBCG+41LJtfAcBRng==}
@@ -5234,10 +5217,6 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/vscode-icons@1.2.2':
-    dependencies:
-      '@iconify/types': 2.0.0
-
   '@iconify/collections@1.0.465':
     dependencies:
       '@iconify/types': 2.0.0
@@ -5518,41 +5497,6 @@ snapshots:
       - magicast
       - rollup
       - supports-color
-      - webpack-sources
-
-  '@nuxt/ui-pro@1.4.3(magicast@0.3.5)(rollup@4.22.5)(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1))(vue@3.5.10(typescript@5.6.2))':
-    dependencies:
-      '@iconify-json/vscode-icons': 1.2.2
-      '@nuxt/ui': 2.18.6(magicast@0.3.5)(rollup@4.22.5)(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1))(vue@3.5.10(typescript@5.6.2))
-      '@vueuse/core': 11.1.0(vue@3.5.10(typescript@5.6.2))
-      defu: 6.1.4
-      git-url-parse: 15.0.0
-      ofetch: 1.4.0
-      parse-git-config: 3.0.0
-      pathe: 1.1.2
-      pkg-types: 1.2.0
-      tailwind-merge: 2.5.2
-      vue3-smooth-dnd: 0.0.6(vue@3.5.10(typescript@5.6.2))
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - async-validator
-      - axios
-      - change-case
-      - drauu
-      - focus-trap
-      - idb-keyval
-      - jwt-decode
-      - magicast
-      - nprogress
-      - qrcode
-      - rollup
-      - sortablejs
-      - supports-color
-      - ts-node
-      - uWebSockets.js
-      - universal-cookie
-      - vite
-      - vue
       - webpack-sources
 
   '@nuxt/ui@2.18.6(magicast@0.3.5)(rollup@4.22.5)(vite@5.4.8(@types/node@22.7.4)(terser@5.34.1))(vue@3.5.10(typescript@5.6.2))':
@@ -9245,8 +9189,6 @@ snapshots:
 
   smob@1.5.0: {}
 
-  smooth-dnd@0.12.1: {}
-
   source-map-js@1.2.1: {}
 
   source-map-support@0.5.21:
@@ -9848,11 +9790,6 @@ snapshots:
       '@vue/language-core': 2.1.6(typescript@5.6.2)
       semver: 7.6.3
       typescript: 5.6.2
-
-  vue3-smooth-dnd@0.0.6(vue@3.5.10(typescript@5.6.2)):
-    dependencies:
-      smooth-dnd: 0.12.1
-      vue: 3.5.10(typescript@5.6.2)
 
   vue@3.5.10(typescript@5.6.2):
     dependencies:

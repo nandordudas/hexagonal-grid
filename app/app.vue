@@ -12,10 +12,5 @@ useHead({
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-
-    <ClientOnly>
-      <UModals />
-      <UNotifications />
-    </ClientOnly>
   </div>
 </template>

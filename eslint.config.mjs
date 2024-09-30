@@ -6,8 +6,8 @@ export default antfu()
       complexity: ['error', 5],
     },
   })
-  // .override('antfu/imports/rules', {
-  //   // rules: {
-  //   //   'import/order': ['error', { 'newlines-between': 'always' }],
-  //   // },
-  // })
+  .override('antfu/imports/rules', {
+    rules: {
+      'import/order': ['error', { 'newlines-between': 'always' }],
+    },
+  })
