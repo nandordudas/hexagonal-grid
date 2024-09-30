@@ -20,6 +20,8 @@
 
 This project draws a simple hexagonal grid on a canvas using `OffscreenCanvas`. The grid is rendered on the offscreen canvas and then transferred to the main canvas for display.
 
+> You can enable debug logger by updating the logger instance and update `logLevel` property.
+
 The application starts at `app.vue`, with the index page rendering the canvas. The hexagonal grid is drawn in the `components/app/CanvasWrapper.vue` component, which is loaded in client-only mode because `Worker` is unavailable in server environments. The page itself is wrapped in a layout.
 
 The `CanvasWrapper.vue` component uses the `components/app/Canvas.vue` component to display the canvas. `Canvas.vue` handles the actual grid drawing. Some helper functions in the `composables` directory handle canvas and worker-related tasks.
