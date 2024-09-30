@@ -48,7 +48,7 @@ For easier development, the worker is reloaded on every change in the worker
 but this HMR behavior can be distorbing, so it's recommended to export event
 listeners from the worker file.
 
-> [!INFO]
+> [!WARNING]
 >
 > Every time the worker is reloaded, the Tailwind CSS JIT compiler is
 > recompiling the CSS files and an error is thrown.
